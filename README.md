@@ -4,7 +4,7 @@ A fast, responsive storefront + admin CMS for managing merch catalogs (display-o
 
 ## Assumptions
 - Using Next.js App Router + TailwindCSS + Prisma + Postgres per request.
-- Auth uses simple credentials via NextAuth for the MVP (can swap for OAuth or magic links).
+- Auth uses NextAuth credentials for the MVP (swap for OAuth or magic links as needed).
 - Image uploads target S3-compatible storage in production; local folder structure mirrors `/uploads/<category>/<product-slug>/`.
 
 ## A) Architecture + Folder Structure

@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { SiteFooter } from '@/components/site-footer';
 import { SiteHeader } from '@/components/site-header';
+import { AuthSessionProvider } from '@/components/session-provider';
 
 export const metadata: Metadata = {
   title: 'Merch Catalog CMS',
@@ -25,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <SiteHeader />
-        <main className="pb-20">{children}</main>
-        <SiteFooter />
+        <AuthSessionProvider>
+          <SiteHeader />
+          <main className="pb-20">{children}</main>
+          <SiteFooter />
+        </AuthSessionProvider>
       </body>
     </html>
   );
