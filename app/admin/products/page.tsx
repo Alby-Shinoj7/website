@@ -3,7 +3,20 @@
 import { useMemo, useState } from 'react';
 import { products as initialProducts } from '@/data/catalog';
 
-type ProductItem = typeof initialProducts[number];
+interface ProductItem {
+  id: string;
+  name: string;
+  slug: string;
+  description: string;
+  categorySlug: string;
+  price?: number;
+  sizes: string[];
+  colors: string[];
+  tags: string[];
+  status: 'draft' | 'published';
+  createdAt: string;
+  images: string[];
+}
 
 const emptyForm = {
   name: '',
@@ -22,7 +35,7 @@ const slugify = (value: string) =>
     .replace(/(^-|-$)+/g, '');
 
 export default function AdminProductsPage() {
-  const [items, setItems] = useState<ProductItem[]>(initialProducts);
+  const [items, setItems] = useState<ProductItem[]>(initialProducts as ProductItem[]);
   const [form, setForm] = useState(emptyForm);
 
   const mappedItems = useMemo(
