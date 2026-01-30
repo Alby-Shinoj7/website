@@ -1,4 +1,4 @@
-\"use client\";
+"use client";
 
 import { useMemo, useState } from 'react';
 import { products as initialProducts } from '@/data/catalog';
